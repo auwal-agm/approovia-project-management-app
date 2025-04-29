@@ -49,7 +49,7 @@ A simple and responsive **drag-and-drop dashboard interface** built with React a
 
 ## ⚙️ Tech Stack
 
-- **Frontend Framework:** React
+- **Frontend Framework:** React (TypeScript) + Vite
 - **Styling:** Tailwind CSS
 - **Drag and Drop:** `@dnd-kit/core`
 - **Mock API:** Simulated with `fetch()` + `Promise.resolve()`
