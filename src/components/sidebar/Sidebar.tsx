@@ -15,17 +15,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
     return (
         <Fragment>
-            {/* Overlay for mobile */}
-            <div
-                className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-20 transition-opacity md:hidden ${isOpen ? "block" : "hidden"}`}
-                onClick={onClose}
-            />
-
-            {/* Sidebar */}
             <aside
-                className={`fixed z-30 inset-y-0 left-0 w-64 bg-white shadow-lg p-4 transition-transform transform md:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"
-                    } md:relative md:translate-x-0`}
-            >
+                className={`fixed z-30 inset-y-0 left-0 w-64 bg-white shadow-lg p-4 transition-transform transform md:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full" } md:relative md:translate-x-0`}>
                 <nav className="space-y-4">
                     <div className="p-2 pb-2 flex items-center justify-left">
                         <h2 className="text-lg font-semibold">Project Folders</h2>

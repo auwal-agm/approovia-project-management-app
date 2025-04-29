@@ -64,9 +64,6 @@ export default function DraggableProjectCard({ id, name, folderName }: Props) {
         ref={setNodeRef}
         {...attributes}
         {...listeners}
-        // className="cursor-grab"
-        // className={`bg-gray-50 p-4 border rounded-md min-h-[200px] transition ${isDragging ? "border-blue-500 bg-blue-50" : "border-gray-200"
-        // }`}
         className={`h-24 flex justify-center items-center p-3 mb-2 bg-white rounded shadow transition-all duration-300 ease-in-out transform ${isDragging ? "scale-95 opacity-60 border-3 border-blue-500" : "hover:scale-[1.02]"}`}
       >
         <div key={id} className="w-full text-center h-24 relative group cursor-pointer">

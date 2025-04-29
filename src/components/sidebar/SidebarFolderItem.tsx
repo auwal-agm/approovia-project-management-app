@@ -20,11 +20,9 @@ export default function SidebarFolderItem({ folderName, onClose }: SidebarFolder
 
     const isSelected = selectedFolder === folderName;
 
-    // State for editing folder name
     const [isEditingFolder, setIsEditingFolder] = useState(false);
     const [folderTitle, setFolderTitle] = useState(folderName);
 
-    // Function to handle folder rename
     const handleFolderRename = () => {
         if (folderTitle.trim() && folderTitle !== folderName) {
             dispatch(renameFolder({ oldName: folderName, newName: folderTitle.trim() }));
