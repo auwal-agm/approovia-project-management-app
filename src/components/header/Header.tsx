@@ -1,10 +1,14 @@
+import useIsMobile from "../../hooks/useIsMobile";
+
 type HeaderProps = {
     onMenuClick: () => void;
 };
 
 export default function Header({ onMenuClick }: HeaderProps) {
+    const isMobile = useIsMobile();
     return (
         <header className="bg-white shadow p-4 flex items-center gap-2">
+            {!isMobile && 
             <button
                 className="md:hidden text-gray-600"
                 onClick={onMenuClick}
@@ -24,6 +28,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
                     />
                 </svg>
             </button>
+            }
             <h1 className="text-xl font-bold text-gray-700">Approovia Project Management</h1>
         </header>
     );

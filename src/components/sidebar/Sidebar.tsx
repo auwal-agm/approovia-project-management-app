@@ -1,23 +1,18 @@
 import { Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Folder } from "lucide-react";
-import { selectFolder } from "../../redux/slices/dashboardSlice";
+import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import SidebarFolderItem from "./SidebarFolderItem";
+import useIsMobile from "../../hooks/useIsMobile";
 
 type SidebarProps = {
     isOpen: boolean;
     onClose: () => void;
-    selectedFolder: string;
-    onSelectFolder: (folder: string) => void;
 };
 
-export default function Sidebar({
-    isOpen,
-    onClose,
-}: SidebarProps) {
-    const dispatch = useDispatch();
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     const folders = useSelector((state: RootState) => state.dashboard.folders);
-    const selectedFolder = useSelector((state: RootState) => state.dashboard.selectedFolder);
+    const isMobile = useIsMobile();
+
     return (
         <Fragment>
             {/* Overlay for mobile */}
@@ -36,22 +31,8 @@ export default function Sidebar({
                         <h2 className="text-lg font-semibold">Project Folders</h2>
                     </div>
                     <ul className="space-y-2">
-                        {folders.map((folder, index) => (
-                            <li key={index}>
-                                <button
-                                    className={`flex items-center gap-2 cursor-pointer w-full text-left px-4 py-2 rounded transition font-medium ${folder.name === selectedFolder
-                                        ? "bg-blue-500 text-white"
-                                        : "text-gray-700 hover:bg-gray-100"
-                                        }`}
-                                    onClick={() => {
-                                        dispatch(selectFolder(folder.name));
-                                        onClose(); // for mobile
-                                    }}
-                                >
-                                    <Folder size={18} />
-                                    {folder.name}
-                                </button>
-                            </li>
+                        {!isMobile && folders.map((folder) => (
+                            <SidebarFolderItem key={folder.name} folderName={folder.name} onClose={onClose} />
                         ))}
                     </ul>
                 </nav>
