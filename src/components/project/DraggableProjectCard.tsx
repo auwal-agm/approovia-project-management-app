@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDraggable } from "@dnd-kit/core";
 import Project from "./Project";
 import { renameProject } from "../../redux/slices/dashboardSlice";
@@ -8,7 +8,7 @@ import { Check, Pencil } from "lucide-react";
 type Props = {
   id: string;
   name: string;
-  folderName: string; // Add folderName prop to pass folder name from parent
+  folderName: string;
 };
 
 export default function DraggableProjectCard({ id, name, folderName }: Props) {
